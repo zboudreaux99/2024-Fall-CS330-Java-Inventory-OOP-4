@@ -16,5 +16,4 @@ makefile
 # Do not include reference txt files
 *.txt
 !src/main/resources/*.txt
-
-**.bak
+!src/test/resources/*.txt
