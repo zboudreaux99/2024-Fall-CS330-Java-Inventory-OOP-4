@@ -48,7 +48,7 @@ public class Consumable implements Item {
      */
     public Consumable()
     {
-        super("");
+        super();
         this.setEffect("");
         this.setNumberOfUses(0);
     }
