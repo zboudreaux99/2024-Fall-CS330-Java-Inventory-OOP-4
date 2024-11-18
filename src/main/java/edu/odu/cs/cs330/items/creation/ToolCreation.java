@@ -53,6 +53,6 @@ public class ToolCreation implements ItemCreationStrategy
     public Item fromExisting(final Item original)
     {
         // Return a clone of original
-        return Tool.clone(original);
+        return original.clone();
     }
 }

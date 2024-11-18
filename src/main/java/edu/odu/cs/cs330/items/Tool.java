@@ -41,9 +41,7 @@ public class Tool extends Equippable implements Item {
     public Tool()
     {
         super();
-
-        this.name = "[Placeholder]";
-        this.speed = 0;
+        this.setSpeed(0);
     }
 
     /**

@@ -48,9 +48,9 @@ public class Consumable implements Item {
      */
     public Consumable()
     {
-        this.name = "[Placeholder]";
-        this.effect = "[Placeholder]";
-        this.uses = 0;
+        super("");
+        this.setEffect("");
+        this.setNumberOfUses(0);
     }
 
     @Override

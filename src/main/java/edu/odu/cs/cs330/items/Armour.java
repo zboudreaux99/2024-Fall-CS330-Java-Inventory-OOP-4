@@ -43,9 +43,12 @@ public class Armour extends Equippable implements Item
     public Armour()
     {
         super();
-
-        this.name = "[Placeholder]";
-        this.defense = 0;
+        this.setDurability(0);
+        this.setDefense(0);
+        this.setMaterial("");
+        this.setModifier("");
+        this.setModifierLevel(0);
+        this.setElement("");
     }
 
     /**
@@ -82,7 +85,6 @@ public class Armour extends Equippable implements Item
         clone.setModifier(this.getModifier());
         clone.setModifierLevel(this.getModifierLevel());
         clone.setElement(this.getElement());
-
         return clone;
     }
 
