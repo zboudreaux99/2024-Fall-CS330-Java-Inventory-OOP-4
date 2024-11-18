@@ -117,9 +117,11 @@ public class Consumable implements Item {
     @Override
     public Item clone()
     {
-        Consumable cpy = new Consumable();
-
-        return cpy;
+        Consumable clone = new Consumable();
+        clone.setName(this.getName());
+        clone.setEffect(this.getEffect());
+        clone.setNumberOfUses(this.getNumberOfUses());
+        return clone;
     }
 
     /**
@@ -132,11 +134,14 @@ public class Consumable implements Item {
     {
         if (!(rhs instanceof Consumable)) {
             return false;
+        } else if (this == rhs) {
+            return true;
         }
 
         Consumable rhsItem = (Consumable) rhs;
 
-        return false;
+        return this.getName().equals(rhsItem.getName()) &&
+               this.getEffect().equals(rhsItem.getEffect());
     }
 
     /**
@@ -148,7 +153,7 @@ public class Consumable implements Item {
     @Override
     public int hashCode()
     {
-        return -1;
+        return this.getName().hashCode() + this.getEffect().hashCode();
     }
 
     /**
@@ -157,6 +162,7 @@ public class Consumable implements Item {
     @Override
     public String toString()
     {
-        return "Not Implemented";
+        System.out.println(String.format(FMT_STR, this.getName(), this.getEffect(), this.getNumberOfUses()));
+        return String.format(FMT_STR, this.getName(), this.getEffect(), this.getNumberOfUses());
     }
 }

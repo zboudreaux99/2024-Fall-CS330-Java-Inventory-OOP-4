@@ -72,11 +72,14 @@ public class Tool extends Equippable implements Item {
     @Override
     public Item clone()
     {
-        Tool cpy = new Tool();
-
-        cpy.setName(this.name);
-
-        return cpy;
+        Tool clone = new Tool();
+        clone.setName(this.getName());
+        clone.setMaterial(this.getMaterial());
+        clone.setDurability(this.getDurability());
+        clone.setModifier(this.getModifier());
+        clone.setModifierLevel(this.getModifierLevel());
+        clone.setSpeed(this.getSpeed());
+        return clone;
     }
 
     /**
@@ -89,12 +92,20 @@ public class Tool extends Equippable implements Item {
     public boolean equals(Object rhs)
     {
         if (!(rhs instanceof Tool)) {
+            System.out.println("failed for instanceof");
             return false;
+        } else if (this == rhs) {
+            System.out.println("true for this == rhs");
+            return true;
         }
 
         Tool rhsItem = (Tool) rhs;
 
-        return false;
+        return this.getName().equals(rhsItem.getName()) &&
+               this.getSpeed() == rhsItem.getSpeed() &&
+               this.getMaterial().equals(rhsItem.getMaterial()) &&
+               this.getModifier().equals(rhsItem.getModifier()) &&
+               this.getModifierLevel() == rhsItem.getModifierLevel();
     }
 
     /**
@@ -104,13 +115,20 @@ public class Tool extends Equippable implements Item {
     @Override
     public int hashCode()
     {
-        int hash = this.getName().hashCode();
-        hash += 2 * this.getMaterial().hashCode();
-        hash += 4 * this.getModifier().hashCode();
-        hash += 8 * this.getModifierLevel();
-        hash += 32 * this.getSpeed();
+        // int hash = this.getName().hashCode();
+        // hash += 2 * this.getMaterial().hashCode();
+        // hash += 4 * this.getModifier().hashCode();
+        // hash += 8 * this.getModifierLevel();
+        // hash += 32 * this.getSpeed();
 
-        return hash;
+        // return hash;
+        return Objects.hash(
+            this.getName(),
+            this.getMaterial(),
+            this.getModifier(),
+            this.getModifierLevel(),
+            this.getSpeed()
+        );
     }
 
     /**
@@ -119,6 +137,14 @@ public class Tool extends Equippable implements Item {
     @Override
     public String toString()
     {
-        return "String.format(FMT_STR, ...)";
+        return String.format(
+           FMT_STR,
+           this.getName(),
+           this.getDurability(),
+           this.getSpeed(),
+           this.getMaterial(),
+           this.getModifier(),
+           this.getModifierLevel()
+        );
     }
 }

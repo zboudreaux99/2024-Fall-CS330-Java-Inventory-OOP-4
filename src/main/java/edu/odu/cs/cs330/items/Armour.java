@@ -74,9 +74,16 @@ public class Armour extends Equippable implements Item
     @Override
     public Item clone()
     {
-        Armour cpy = new Armour();
+        Armour clone = new Armour();
+        clone.setName(this.getName());
+        clone.setMaterial(this.getMaterial());
+        clone.setDurability(this.getDurability());
+        clone.setDefense(this.getDefense());
+        clone.setModifier(this.getModifier());
+        clone.setModifierLevel(this.getModifierLevel());
+        clone.setElement(this.getElement());
 
-        return cpy;
+        return clone;
     }
 
     /**
@@ -90,11 +97,18 @@ public class Armour extends Equippable implements Item
     {
         if (!(rhs instanceof Armour)) {
             return false;
+        } else if (this == rhs) {
+            return true;
         }
 
         Armour rhsItem = (Armour) rhs;
 
-        return false;
+        return this.getName().equals(rhsItem.getName()) &&
+               this.getMaterial().equals(rhsItem.getMaterial()) &&
+               this.getModifier().equals(rhsItem.getModifier()) &&
+               this.getModifierLevel() == (rhsItem.getModifierLevel()) &&
+               this.getElement().equals(rhsItem.getElement()) &&
+               this.getDefense() == (rhsItem.getDefense());
     }
 
     /**
@@ -104,7 +118,14 @@ public class Armour extends Equippable implements Item
     @Override
     public int hashCode()
     {
-        return -1;
+        return Objects.hash(
+            this.getName(),
+            this.getMaterial(),
+            this.getModifier(),
+            this.getModifierLevel(),
+            this.getElement(),
+            this.getDefense()
+        );
     }
 
     /**
@@ -113,7 +134,8 @@ public class Armour extends Equippable implements Item
     @Override
     public String toString()
     {
-        return "Use the provided format string";
+        System.out.println(String.format(FMT_STR, this.getName(), this.getDurability(), this.getDefense(), this.getMaterial(), this.getModifier(), this.getModifierLevel(), this.getElement()));
+        return String.format(FMT_STR, this.getName(), this.getDurability(), this.getDefense(), this.getMaterial(), this.getModifier(), this.getModifierLevel(), this.getElement());
     }
 }
 
