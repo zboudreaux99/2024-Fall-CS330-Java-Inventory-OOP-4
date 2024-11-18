@@ -38,6 +38,8 @@ public class TestConsumableCreation
     public void testFromDefaults()
     {
         Consumable ref = new Consumable();
+        System.out.println(ref.toString());
+        System.out.println(ConsumableCreation.construct().fromDefaults().toString());
         assertThat(ConsumableCreation.construct().fromDefaults(), equalTo(ref));
     }
 
