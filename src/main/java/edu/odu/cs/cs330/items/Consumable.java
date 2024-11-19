@@ -141,8 +141,8 @@ public class Consumable implements Item {
         }
 
         Consumable rhsItem = (Consumable) rhs;
-        System.out.println("this name = %s, rhs name = %s".format(this.getName(), rhsItem.getName()));
-        System.out.println("this effect = %s, rhs effect = %s".format(this.getEffect(), rhsItem.getEffect()));
+        System.out.println(String.format("this name = %s, rhs name = %s", this.getName(), rhsItem.getName()));
+        System.out.println(String.format("this effect = %s, rhs effect = %s", this.getEffect(), rhsItem.getEffect()));
         System.out.println("Fail equals");
         return this.getName().equals(rhsItem.getName()) &&
                this.getEffect().equals(rhsItem.getEffect());
