@@ -133,13 +133,15 @@ public class Consumable implements Item {
     public boolean equals(Object rhs)
     {
         if (!(rhs instanceof Consumable)) {
+            System.out.println("Fail instanceof");
             return false;
         } else if (this == rhs) {
+            System.out.println("Fail this==rhs");
             return true;
         }
 
         Consumable rhsItem = (Consumable) rhs;
-
+        System.out.println("Fail equals");
         return this.getName().equals(rhsItem.getName()) &&
                this.getEffect().equals(rhsItem.getEffect());
     }

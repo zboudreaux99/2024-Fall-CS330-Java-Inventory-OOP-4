@@ -43,6 +43,7 @@ public class TestConsumableCreation
 
         System.out.println("default:");
         System.out.println(ConsumableCreation.construct().fromDefaults());
+        System.out.println(ref.equals(ConsumableCreation.construct().fromDefaults()));
         assertThat(ConsumableCreation.construct().fromDefaults(), equalTo(ref));
     }
 
