@@ -38,7 +38,7 @@ public class TestConsumableCreation
     public void testFromDefaults()
     {
         Consumable ref = new Consumable();
-        System.out.println("ref:")
+        System.out.println("ref:");
         System.out.println(ref.toString());
 
         System.out.println("default:");
