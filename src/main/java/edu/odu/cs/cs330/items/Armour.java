@@ -133,7 +133,6 @@ public class Armour extends Equippable implements Item
     @Override
     public String toString()
     {
-        System.out.println(String.format(FMT_STR, this.getName(), this.getDurability(), this.getDefense(), this.getMaterial(), this.getModifier(), this.getModifierLevel(), this.getElement()));
         return String.format(FMT_STR, this.getName(), this.getDurability(), this.getDefense(), this.getMaterial(), this.getModifier(), this.getModifierLevel(), this.getElement());
     }
 }
