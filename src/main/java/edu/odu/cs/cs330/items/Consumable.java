@@ -162,7 +162,6 @@ public class Consumable implements Item {
     @Override
     public String toString()
     {
-        System.out.println(String.format(FMT_STR, this.getName(), this.getEffect(), this.getNumberOfUses()));
         return String.format(FMT_STR, this.getName(), this.getEffect(), this.getNumberOfUses());
     }
 }
